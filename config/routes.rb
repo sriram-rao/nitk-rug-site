@@ -1,10 +1,11 @@
 NitkRugSite::Application.routes.draw do
   resources :posts
 
+  root "static_pages#home"
   post 'comment/create/:id' => 'comment#create'
-  get "static_pages/home"
-  get "static_pages/about"
-  get "static_pages/members"
+  # get  "static_pages/home"
+  get "/about" => 'static_pages#about'
+  get "/members" => "static_pages#members"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -45,7 +46,7 @@ NitkRugSite::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
