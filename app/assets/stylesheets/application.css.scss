@@ -25,7 +25,7 @@
      background-color: #E1E7EA
  }
 
-@import "bootstrap-responsive";
+//@import "bootstrap-responsive";
 
 @import "bootswatch/readable/bootswatch";
 
@@ -34,7 +34,25 @@ h1
       color: #0a3f6e;
 }
 
-#home
+h3
 {
-  color: black;
+      color: #299160
+}
+
+h4
+{
+      color: #4E866C
+}
+
+
+textarea#blog-text-area
+{
+  width: 1000px;
+  height: 500px;
+}
+
+textarea#comment-text-area
+{
+  width: 500px;
+  height: 100px;
 }

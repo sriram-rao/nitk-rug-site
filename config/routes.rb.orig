@@ -1,10 +1,13 @@
 NitkRugSite::Application.routes.draw do
-  resources :posts
-
-  post 'comment/create/:id' => 'comment#create'
+<<<<<<< HEAD
   get "static_pages/home"
   get "static_pages/about"
   get "static_pages/members"
+=======
+  resources :posts
+
+  post 'comment/create/:id' => 'comment#create'
+>>>>>>> 21f689567e549def09d22cd5a81546997109bd13
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

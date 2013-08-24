@@ -12,19 +12,20 @@
   <div class = "navbar-inner">
     <div class = "container">
 
-      <a class = "btn btn-navbar" data-toggle = "collpase" data-target=".nav-collapse">
+      <!-- <a class = "btn btn-navbar" data-toggle = "collpase" data-target=".nav-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </a>
-        <a href="/static_pages/home" class="brand">NITK-RUG</a>
+      </a> -->
+
+        <a href="/static_pages/home" class="brand"><%= image_tag("ruby1.png", size: "20x20") %>&nbsp;NITK-RUG</a>
 
 
        <div class="nav-collapse collapse" id="main-menu">
           <ul class="nav" id="main-menu-left">
             <li> <%= link_to( "About Us", controller: "static_pages", action: "about") %></li>
             <li> <%= link_to( "Members", controller: "static_pages", action: "members") %></li>
-            <li> <%= link_to( "Blog", "#") %></li>
+            <li> <%= link_to( "Blog", controller: "posts", action: "index") %></li>
           </ul>
         </div>
    </div>

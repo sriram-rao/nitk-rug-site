@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+    <h3 style="text-align: center;"><%= link_to_unless_current @post.title, @post %></h3>
+
+    <h5 style="text-align: right;">Blog posted by - KSB </h5><br/>
+    <div style="padding-left: 20px; padding-right: 20px; text-align: justify;"><%= simple_format @post.body %></div>
+<%# @post.comments.inspect %>
+<br/><br/>
+<h4>Comments</h4>
+<% @post.comments.each do |comment| %>
+	<p>
+        <strong>
+         Posted <%= time_ago_in_words(comment.created_at) %> ago
+        </strong>
+        &nbsp;&nbsp;&nbsp;By-
+        <strong>
+        	<%= comment.name %>
+        </strong>
+
+           <br/>
+            <%= comment.body %>
+     </p>
+<% end %>
+<br/><br/>
+
+<h4>Add your comment:</h4>
+<%= form_for(@comment, url: {controller: "comment" ,action: "create"}, :post_id=>@post.id) do |f| %>
+  <p>
+        <%= f.label :name, "Your name" %><br/>
+        <%= f.text_field :name %><br/>
+        <%= f.label :body, "New comment" %><br/>
+        <%= f.text_area :body, id: "comment-text-area" %>
+  </p>
+     <p><%= f.submit "Add comment", class: "btn btn-inverse" %></p>
+<% end %>
+
+<!--<%= link_to 'Edit', edit_post_path(@post) %> |-->
+<%= link_to 'Back', posts_path %>
