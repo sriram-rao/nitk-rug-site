@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => @post %>
+<h3>Blog posted by - KSB </h3>
+
+<%# @post.comments.inspect %>
+
+<h2>Comments</h2><br/>
+<% @post.comments.each do |comment| %>
+	<p>
+        <strong>
+         Posted <%= time_ago_in_words(comment.created_at) %> ago
+        </strong>
+        &nbsp;&nbsp;&nbsp;By-
+        <strong>
+        	<%= comment.name %>
+        </strong>
+
+           <br/>
+            <%= comment.body %>
+     </p>
+<% end %>
+<br/><br/>
+
+<h2>Add your comment:</h2>
+<%= form_for(@comment, url: {controller: "comment" ,action: "create"}, :post_id=>@post.id) do |f| %>
+  <p>
+        <%= f.label :name, "Your name" %><br/>
+        <%= f.text_field :name %><br/>
+        <%= f.label :body, "New comment" %><br/>
+        <%= f.text_area :body %>
+  </p>
+     <p><%= f.submit "Add comment" %></p>
+<% end %>
+
+<!--<%= link_to 'Edit', edit_post_path(@post) %> |-->
+<%= link_to 'Back', posts_path %>
