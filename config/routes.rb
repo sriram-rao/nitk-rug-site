@@ -1,4 +1,7 @@
 NitkRugSite::Application.routes.draw do
+  resources :posts
+
+  post 'comment/create/:id' => 'comment#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
