@@ -1,0 +1,15 @@
+<h1>Events</h1>
+
+<br/><br/>
+    <% @events.each do |event| %>
+        <div class="alert alert-success">
+        <h4 style="color:#3A7500; text-align:justify;" ><%= event.title %></h4><br/>
+        <p style="color:#654100; text-align:justify;"><%= event.body %></p></br>
+          <p style="text-align:left;">Place : <%= event.place %></p>
+        <p style="text-align:right;">Date : <%= event.date %></p>
+          <p style="text-align:right;">Time - <%= event.time.to_s[10..15] %></p>
+          <p><%= button_to "RSVP",rsvp_event_path(event),class: "btn btn-inverse"%></p>
+          </div><br/>
+    <% end %>
+
+<br>

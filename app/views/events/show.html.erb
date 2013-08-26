@@ -1,0 +1,12 @@
+<% unless notice.nil? %><div class="alert alert-success"><p><%= notice %></p></div><% end %>
+
+    <h3><%= link_to_unless_current @event.title, @event %></h3>
+
+        <p style="text-align:right;">Date: <%= @event.date %><p>
+        <p style="text-align:right;">Time- <%= @event.time.to_s[10..15] %><p>
+        <p style="text-align:left;">Place: <%= @event.place %><p><br/>
+
+    <div style="padding-left: 20px; padding-right: 20px; text-align: justify;"><%= simple_format @event.body %>
+        <p style="text-align:right;">RSVPs: <%= @event.rsvp %><p><br/><br/></div>
+<%# @post.comments.inspect %>
+<br/>

@@ -1,12 +1,18 @@
 NitkRugSite::Application.routes.draw do
+  resources :events do
+    member do
+      post 'rsvp'
+    end
+  end
+
   resources :posts
 
   root "static_pages#home"
   post 'comment/create/:id' => 'comment#create'
   # get  "static_pages/home"
-  get "/about" => 'static_pages#about'
   get "/members" => "static_pages#members"
   get "/home" => "static_pages#home"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
